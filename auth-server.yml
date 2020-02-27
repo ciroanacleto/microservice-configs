@@ -14,28 +14,36 @@ eureka:
     wait-time-in-ms-when-sync-empty: 3000
 
 security:
-    oauth2:
-        client:
-            access-token-validity-seconds: 1800
-            authorized-grant-types: password,refresh_token
-            client-id: spring
-            client-secret: $2a$10$p9Pk0fQNAQSesI4vuvKA0OZanDD2
-            resource-ids: resources
-            scope: read,write
+  oauth2:
+    client:
+      access-token-validity-seconds: 1800
+      authorized-grant-types: password,refresh_token
+      client-id: spring
+      client-secret: $2a$10$p9Pk0fQNAQSesI4vuvKA0OZanDD2
+      resource-ids: resources
+      scope: read,write
+
+logging:
+  level:
+    org:
+      springframework:
+        security:
+          web:
+            FilterChainProxy: DEBUG
 
 spring:
-    datasource:
-        platform: postgres
-        driver-class-name: org.postgresql.Driver
-        username: postgres
-        password: 'postgres'
-        url: jdbc:postgresql://localhost:5432/oauth
-        schema: classpath:/sql/schema.sql
-        data: classpath:/sql/data.sql
-    jpa:
-        database-platform: org.hibernate.dialect.PostgreSQLDialect
-        generate-ddl: false
-        hibernate:
-            ddl-auto: none
-        show-sql: true
+  datasource:
+    platform: postgres
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: 'postgres'
+    url: jdbc:postgresql://localhost:5432/oauth
+    schema: classpath:/sql/schema.sql
+    data: classpath:/sql/data.sql
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+    show-sql: true
 
