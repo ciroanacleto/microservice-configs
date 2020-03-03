@@ -14,18 +14,18 @@ eureka:
     wait-time-in-ms-when-sync-empty: 3000
 
 spring:
-    datasource:
-        platform: postgres
-        driver-class-name: org.postgresql.Driver
-        username: postgres
-        password: 'postgres'
-        url: jdbc:postgresql://localhost:5432/delivery-order
-    jpa:
-        database-platform: org.hibernate.dialect.PostgreSQLDialect
-        generate-ddl: false
-        hibernate:
-            ddl-auto: create
-        show-sql: true
+  datasource:
+    platform: postgres
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: 'postgres'
+    url: jdbc:postgresql://localhost:5432/delivery-order
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    generate-ddl: false
+    hibernate:
+      ddl-auto: create
+    show-sql: true
 
 authserver:
   hostname: http://localhost:9092
@@ -33,3 +33,10 @@ security:
   oauth2:
     resource:
       userInfoUri: ${authserver.hostname}/user
+
+logging:
+  level:
+    org:
+      springframework:
+        security:
+          oauth2: debug

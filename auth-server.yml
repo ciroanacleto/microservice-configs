@@ -27,9 +27,7 @@ logging:
   level:
     org:
       springframework:
-        security:
-          web:
-            FilterChainProxy: DEBUG
+        security: DEBUG
 
 spring:
   datasource:
